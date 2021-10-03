@@ -10,7 +10,11 @@ export class TheAmazingListComponent implements OnInit {
   @Input() listItems: Partial<AppUserCard>[] = [];
   @Output() itemClicked = new EventEmitter<AppUserCard>();
   @Output() itemDeleted = new EventEmitter<AppUserCard>();
-  constructor() {}
+  constructor() { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
+
+  trackByFn(_, user: AppUserCard) {
+    return user.email;
+  }
 }
